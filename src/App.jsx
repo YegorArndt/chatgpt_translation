@@ -21,6 +21,8 @@ const PositionTitle = ({ text }) => (
   <h2 className="text-black font-semibold text-2xl py-3">{text}</h2>
 );
 
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 function App() {
   const [country, setCountry] = useState(null);
   const [city, setCity] = useState(null);
@@ -28,10 +30,12 @@ function App() {
   const [language, setLanguage] = useState("English");
   const [texts, setTexts] = useState(sourceTexts);
 
+  console.log(apiBaseUrl);
+
   useEffect(() => {
     const getLocation = async () => {
-      const response = await fetch("http://localhost:5000/location").then(
-        (res) => res.json()
+      const response = await fetch(`${apiBaseUrl}/location`).then((res) =>
+        res.json()
       );
       return response;
     };
@@ -45,7 +49,7 @@ function App() {
 
   const handleClick = async () => {
     if (language) {
-      const response = await fetch("http://localhost:5000/gpt", {
+      const response = await fetch(`${apiBaseUrl}/gpt`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

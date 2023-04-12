@@ -17,7 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/location", async (req, res) => {
+app.get("/api/location", async (req, res) => {
   try {
     const data = await fetch(
       `https://api.ipregistry.co/?key=${process.env.IPREGISTRY_API_KEY}`
@@ -39,7 +39,7 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-app.post("/gpt", async (req, res) => {
+app.post("/api/gpt", async (req, res) => {
   try {
     const { language } = req.body;
     const sourceTextsArray = JSON.stringify(sourceTextsValues);
