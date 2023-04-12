@@ -30,11 +30,9 @@ function App() {
   const [language, setLanguage] = useState("English");
   const [texts, setTexts] = useState(sourceTexts);
 
-  console.log(apiBaseUrl);
-
   useEffect(() => {
     const getLocation = async () => {
-      const response = await fetch(`${apiBaseUrl}/location`).then((res) =>
+      const response = await fetch(`${apiBaseUrl}/api/location`).then((res) =>
         res.json()
       );
       return response;
@@ -49,7 +47,7 @@ function App() {
 
   const handleClick = async () => {
     if (language) {
-      const response = await fetch(`${apiBaseUrl}/gpt`, {
+      const response = await fetch(`${apiBaseUrl}/api/gpt`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

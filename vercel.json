@@ -3,7 +3,14 @@
   "builds": [
     {
       "src": "src/server/index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "outputDirectory": "dist"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
     }
   ],
   "routes": [
@@ -11,5 +18,8 @@
       "src": "/api/(.*)",
       "dest": "src/server/index.js"
     }
-  ]
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://chatgpt-translation.vercel.app/"
+  }
 }
