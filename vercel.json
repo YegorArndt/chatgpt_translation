@@ -7,10 +7,6 @@
       "config": {
         "outputDirectory": "dist"
       }
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
     }
   ],
   "routes": [
