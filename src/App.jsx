@@ -21,7 +21,7 @@ const PositionTitle = ({ text }) => (
   <h2 className="text-black font-semibold text-2xl py-3">{text}</h2>
 );
 
-const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const apiBaseUrl = import.meta.env.VITE_APP_API_URL || "http://localhost:5000";
 
 function App() {
   const [country, setCountry] = useState(null);

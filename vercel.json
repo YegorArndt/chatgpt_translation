@@ -4,8 +4,5 @@
       "src": "/api/(.*)",
       "dest": "src/server/index.js"
     }
-  ],
-  "env": {
-    "REACT_APP_API_URL": "https://chatgpt-translation.vercel.app/"
-  }
+  ]
 }
