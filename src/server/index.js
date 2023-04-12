@@ -3,16 +3,9 @@ dotenv.config();
 import express from "express";
 import fetch from "node-fetch";
 import { Configuration, OpenAIApi } from "openai";
-import { sourceTextsValues } from "../sourceTexts.js";
-import { URL } from "url";
+import { sourceTextsValues } from "../../sourceTexts.js";
 
 const app = express();
-
-app.use((req, res, next) => {
-  const url = new URL(req.url, `http://${req.hostname}`);
-  req.url = url.searchParams.get("path") || "/";
-  next();
-});
 
 app.use(express.json());
 app.use((req, res, next) => {
