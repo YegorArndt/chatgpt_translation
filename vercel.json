@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/location",
-      "dest": "server/index.js"
+      "dest": "server/index.js?path=/location"
     },
     {
       "src": "/gpt",
-      "dest": "server/index.js"
+      "dest": "server/index.js?path=/gpt"
     },
     {
       "src": "/(.*)",
